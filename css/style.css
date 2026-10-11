@@ -1,66 +1,248 @@
 
-    section {
-        background-color: beige;
-        padding: 40px 20px;
-    }
+/* Apply consistent sizing to every element */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
 
-    h1 {
-        color:#634332; ;
-        font-size: 60px;
-        text-align: center;
+/* Basic page settings */
+html {
+    width: 100%;
+    scroll-behavior: smooth;
+}
 
-    }
+body {
+    margin: 0;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    overflow-wrap: break-word;
+}
+
+/* General section styling */
+section {
+    background-color: beige;
+    padding: 40px 5%;
+}
+
+/* Main headings */
+h1 {
+    color: #634332;
+    font-size: clamp(2rem, 4.5vw, 3.75rem);
+    text-align: center;
+    line-height: 1.2;
+    margin: 0 0 30px;
+}
+
+/* Paragraphs */
 p {
     font-size: 18px;
-    line-height: 1.6;
-   color: #806B5B;
+    line-height: 1.7;
+    color: #806B5B;
 }
+
+/* INTRODUCTION SECTION */
 .intro {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .intro p {
     flex: 1;
+    min-width: 0;
 }
 
 .intro img {
+    display: block;
     width: 45%;
-    height: 250px;
+    max-width: 100%;
+    height: 320px;
     object-fit: cover;
+    border-radius: 8px;
 }
+
+/* RECIPES SECTION */
 .recipe-container {
     display: flex;
     flex-direction: row;
     align-items: stretch;
     gap: 20px;
-    img {
-    width: 25%;
-    height:400px;
-    object-fit: cover;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .recipe {
     flex: 1;
     min-width: 0;
-    font-size: 22px;
+    font-size: 18px;
     color: #806B5B;
     background-color: #E8D8C3;
-    padding: 20px;
+    padding: 24px;
+    border-radius: 8px;
 }
+
+.recipe h2 {
+    color: #634332;
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    line-height: 1.3;
+}
+
+.recipe ul {
+    padding-left: 22px;
+}
+
+.recipe li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+/* Recipe image between the two recipe cards */
+.recipe-container > img {
+    display: block;
+    width: 25%;
+    min-width: 0;
+    height: auto;
+    min-height: 350px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* FAVOURITE SECTION */
 .favorite {
     background-color: beige;
-    padding: 40px 20px;
+    padding: 40px 5%;
 }
 
 .favorite p {
     color: #806B5B;
-    font-size: 30px;
+    font-size: clamp(1.25rem, 2.5vw, 1.875rem);
     font-weight: bold;
-    line-height: 1.8;
+    line-height: 1.7;
     text-align: center;
     max-width: 700px;
-    margin: 30px auto;
+    margin: 0 auto;
+}
+
+/* TABLETS */
+@media (max-width: 900px) {
+    section {
+        padding: 35px 4%;
+    }
+
+    .intro {
+        gap: 20px;
+    }
+
+    .intro img {
+        width: 42%;
+        height: 280px;
+    }
+
+    .recipe-container {
+        gap: 14px;
+    }
+
+    .recipe {
+        padding: 16px;
+        font-size: 16px;
+    }
+
+    .recipe-container > img {
+        width: 25%;
+        min-height: 300px;
+    }
+}
+
+/* MOBILE PHONES */
+@media (max-width: 600px) {
+    section {
+        padding: 28px 18px;
+    }
+
+    h1 {
+        margin-bottom: 22px;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    /* Stack introduction text and image */
+    .intro {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+    }
+
+    .intro p {
+        margin-top: 0;
+        margin-bottom: 8px;
+    }
+
+    .intro img {
+        width: 100%;
+        height: auto;
+        max-height: 350px;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+    }
+
+    /* Stack the recipe cards and image vertically */
+    .recipe-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .recipe {
+        width: 100%;
+        padding: 20px;
+        font-size: 16px;
+    }
+
+    .recipe h2 {
+        font-size: 22px;
+    }
+
+    .recipe-container > img {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        max-height: 350px;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+    }
+
+    /* Make the favourite text comfortable to read */
+    .favorite {
+        padding: 30px 20px;
+    }
+
+    .favorite p {
+        font-size: 20px;
+        line-height: 1.6;
+    }
+}
+
+/* VERY SMALL PHONES */
+@media (max-width: 360px) {
+    section {
+        padding: 24px 14px;
+    }
+
+    .recipe {
+        padding: 16px;
+    }
+
+    .recipe h2 {
+        font-size: 20px;
+    }
+
+    .favorite p {
+        font-size: 18px;
+    }
 }
